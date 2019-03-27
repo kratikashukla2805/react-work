@@ -30,9 +30,11 @@ class App extends Component {
   }
   
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons; // fetch all the persons
-    persons.splice(personIndex, 1); // simply removes 1 person from array 
-    // array.splice(index, howmany, item1, ....., itemX)
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons]; // a new array having objects of the older array.
+    persons.splice(personIndex, 1); // simply removes 1 person from array
+    // its a bad practice, a good practice is to create a copy of persons before manipulating it.
+
     this.setState({persons: persons}) 
 
   }
